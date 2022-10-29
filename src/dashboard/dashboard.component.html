@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" class="filters">
+    <div class="navbar">
+      <mat-form-field appearance="fill" >
+        <mat-label>All Revenue Type</mat-label>
+        <mat-select  multiple [(ngModel)]="selected" (ngModelChange)="change()">
+          <mat-option *ngFor="let food of uniqueProds" [value]="food">
+            {{food}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span> Hi John Doe</span>
+    </div>
+  </mat-toolbar>
+
+ <div class="chart" #containerRef>
+    <ngx-charts-line-chart
+    [view]="[containerRef.offsetWidth, 400]"
+    [scheme]="colorScheme"
+    [results]="currentData"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+</ngx-charts-line-chart>
+ </div>
+
+
+  
+
+<div>
+    <ngx-datatable [rows]="data"
+    class="material" 
+        [columns]="columns" 
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="40"
+        [limit]="10"
+        >
+                    
+                    
+    </ngx-datatable>
+</div>
